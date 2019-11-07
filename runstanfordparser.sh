@@ -10,7 +10,7 @@ then
 	exit 1
 else
     curdir=`dirname $0`
-	sh $curdir/lexparser.oneline.sh $1 |tee $1.parsed
+	sh $curdir/srparser.oneline.sh $1 > $1.parsed
 	echo "runstanfordparser.sh: output file @ $1.parsed"
 	echo "Have a nice day !"
 fi
