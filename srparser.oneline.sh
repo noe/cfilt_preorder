@@ -17,5 +17,8 @@ pv "$@" \
         -ssplit.eolonly true -tokenize.whitespace true \
         -numThreads 4 \
         -output.prettyPrint False -output.includeText False \
-        2> /dev/null \
-  | grep -v '^<' | sed 's,^[ ]*, ,g' | perl -ne 'if (!/^$/) { chomp } print'
+        2> /dev/null  \
+   | sed 's,^\(<.*\)\((ROOT.*\)$,\1\n\2,g' \
+   | grep -v '^<' \
+   | sed 's,^[ ]\+, ,g' \
+   | perl -ne 'if (!/^$/) { chomp } print'
