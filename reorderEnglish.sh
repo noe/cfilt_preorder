@@ -15,7 +15,7 @@ else
     sed 's,^\s*$,MAGIC_SENTENCE_FROM_CFILT,g' $1 > $1.in
 	sh $WORKDIR/runstanfordparser.sh $1.in
     mv $1.in.parsed $1.parsed
-	python $WORKDIR/convert.py $1
+	python2 $WORKDIR/convert.py $1
     if [ $2 = "hindi_tuned" ]
     then         
         echo "Running rules tuned for Hindi"
